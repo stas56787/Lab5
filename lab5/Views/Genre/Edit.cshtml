@@ -1,0 +1,29 @@
+﻿@model lab5.Models.Genre
+
+<h4>Редактирование</h4>
+<form asp-action="Edit">
+    <div class="form-horizontal">
+        <div asp-validation-summary="ModelOnly" class="text-danger"></div>
+        <input type="hidden" asp-for="GenreID" />
+        <div class="form-group">
+            <label asp-for="NameGenre" class="control-label"></label>
+            <input asp-for="NameGenre" class="form-control" />
+            <span asp-validation-for="NameGenre" class="text-danger"></span>
+        </div>
+        <div class="form-group">
+            <label asp-for="DescriptionOfGenre" class="control-label"></label>
+            <input asp-for="DescriptionOfGenre" class="form-control" />
+            <span asp-validation-for="DescriptionOfGenre" class="text-danger"></span>
+        </div>
+        <div class="form-group">
+            <div class="col-md-offset-2 col-md-10">
+                <input type="submit" value="Сохранить" class="btn btn-warning" />
+            </div>
+        </div>
+    </div>
+</form>
+
+
+<div>
+    <a asp-action="Index" class="btn btn-sm btn-primary">Вернуться</a>
+</div>

@@ -1,0 +1,37 @@
+﻿@model lab5.Models.CitizensAppeal
+
+<h2>Редактирование</h2>
+<form asp-action="Edit">
+    <div class="form-horizontal">
+        <div asp-validation-summary="ModelOnly" class="text-danger"></div>
+        <input type="hidden" asp-for="CitizensAppealID" />
+        <div class="form-group">
+            <label asp-for="LFO" class="control-label col-md-2"></label>
+            <div class="col-md-10">
+                <input asp-for="LFO" class="form-control" />
+            </div>
+        </div>
+        <div class="form-group">
+            <label asp-for="Organization" class="control-label col-md-2"></label>
+            <div class="col-md-10">
+                <input asp-for="Organization" class="form-control" />
+            </div>
+        </div>
+        <div class="form-group">
+            <label asp-for="GoalOfRequest" class="control-label col-md-2"></label>
+            <div class="col-md-10">
+                <input asp-for="GoalOfRequest" class="form-control" />
+            </div>
+        </div>
+
+        <div class="form-group">
+            <div class="col-md-offset-2 col-md-10">
+                <input type="submit" value="Сохранить" class="btn btn-warning" />
+            </div>
+        </div>
+    </div>
+</form>
+
+<div>
+    <a asp-action="Index" class="btn btn-sm btn-primary">Вернуться</a>
+</div>

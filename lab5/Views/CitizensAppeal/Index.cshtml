@@ -1,0 +1,47 @@
+﻿@using lab5.ViewModels
+@using lab5.Helpers
+@addTagHelper "*, lab5"
+@model CitizensAppealsViewModel
+@{
+    ViewData["Title"] = "Index";
+}
+
+<div>
+    <div class="data-search">
+        @using (Html.BeginForm("Index", "CitizensAppeal", FormMethod.Post))
+        {
+            <fieldset>
+                ФИО: @Html.TextBox("LFO", Model.CitizensAppealViewModel.LFO)
+                <input type="submit" value="Найти" />
+            </fieldset>
+        }
+        <a asp-action="Add" class="btn btn-default btn">
+            Добавить
+            <i class="glyphicon glyphicon-chevron-right"></i>
+        </a>
+    </div>
+    <div>
+        Обращения граждан
+        <table>
+            <tr>
+                <td><a asp-controller="CitizensAppeal" asp-action="Index" asp-route-sortOrder="@ViewBag.NameSort">ФИО</a></td>
+                <td>Организация</td>
+                <td>Цель запроса</td>
+                <td>Начало передачи в расписании (по ID)</td>
+            </tr>
+            @foreach (CitizensAppeal i in Model.PageViewModel)
+            {
+            <tr>
+                <td>@Html.DisplayFor(modelItem => i.LFO)</td>
+                <td>@Html.DisplayFor(modelItem => i.Organization)</td>
+                <td>@Html.DisplayFor(modelItem => i.GoalOfRequest)</td>
+                <td>@Html.DisplayFor(modelItem => i.ScheduleForWeek.StartTime)</td>
+                <td>
+                    <a asp-action="Edit" asp-route-id="@i.CitizensAppealID">Изменить</a>
+                    <a asp-action="Details" asp-route-id="@i.CitizensAppealID">Подробно</a>
+                </td>
+            </tr>
+            }
+        </table>
+    </div>
+</div>

@@ -1,0 +1,46 @@
+﻿@model lab5.Models.TVShow
+@{
+    ViewData["Title"] = "Add";
+}
+
+<h2>Добавить</h2>
+<hr />
+<div class="row">
+    <div class="col-md-4">
+        <form asp-action="Add">
+            <div asp-validation-summary="ModelOnly" class="text-danger"></div>
+            <div class="form-group">
+                <label asp-for="NameShow" class="control-label"></label>
+                <input asp-for="NameShow" class="form-control" />
+                <span asp-validation-for="NameShow" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                <label asp-for="Duration" class="control-label"></label>
+                <input asp-for="Duration" class="form-control" />
+                <span asp-validation-for="Duration" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                <label asp-for="Rating" class="control-label"></label>
+                <input asp-for="Rating" class="form-control" />
+                <span asp-validation-for="Rating" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                <label asp-for="DescriptionShow" class="control-label"></label>
+                <input asp-for="DescriptionShow" class="form-control" />
+                <span asp-validation-for="DescriptionShow" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                <label asp-for="Genre.NameGenre" class="control-label"></label>
+                <input asp-for="Genre.NameGenre" class="form-control" />
+                <span asp-validation-for="Genre.NameGenre" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                <input type="submit" value="Добавить" class="btn btn-primary" />
+            </div>
+        </form>
+    </div>
+</div>
+
+<div>
+    <a asp-action="Index">Вернуться</a>
+</div>

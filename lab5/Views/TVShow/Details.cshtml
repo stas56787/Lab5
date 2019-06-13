@@ -1,0 +1,22 @@
+﻿@model lab5.Models.TVShow
+@{
+    ViewData["Title"] = "Details";
+}
+<h2>Подробности</h2>
+<div>
+    <dl class="dl-horizontal">
+        <dt>@Html.DisplayNameFor(model => model.NameShow)</dt>
+        <dd>@Html.DisplayFor(model => model.NameShow)</dd>
+        <dt>@Html.DisplayNameFor(model => model.Duration)</dt>
+        <dd>@Html.DisplayFor(model => model.Duration)</dd>
+        <dt>@Html.DisplayNameFor(model => model.Rating)</dt>
+        <dd>@Html.DisplayFor(model => model.Rating)</dd>
+        <dt>@Html.DisplayNameFor(model => model.DescriptionShow)</dt>
+        <dd>@Html.DisplayFor(model => model.DescriptionShow)</dd>
+    </dl>
+</div>
+<div>
+    <a asp-action="Edit" class="btn btn-sm btn-primary" asp-route-id="@Model.TVShowID">Изменить</a>
+    <a asp-action="Delete" class="btn btn-sm btn-primary" asp-route-id="@Model.TVShowID">Удалить</a>
+    <a asp-action="Index" class="btn btn-sm btn-primary">Вернуться</a>
+</div>

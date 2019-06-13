@@ -1,0 +1,18 @@
+﻿@model lab5.Models.Genre
+@{
+    ViewData["Title"] = "Details";
+}
+<h2>Подробности</h2>
+<div>
+    <dl class="dl-horizontal">
+        <dt>@Html.DisplayNameFor(model => model.NameGenre)</dt>
+        <dd>@Html.DisplayFor(model => model.NameGenre)</dd>
+        <dt>@Html.DisplayNameFor(model => model.DescriptionOfGenre)</dt>
+        <dd>@Html.DisplayFor(model => model.DescriptionOfGenre)</dd>
+    </dl>
+</div>
+<div>
+    <a asp-action="Edit" class="btn btn-sm btn-primary" asp-route-id="@Model.GenreID">Изменить</a>
+    <a asp-action="Delete" class="btn btn-sm btn-primary" asp-route-id="@Model.GenreID">Удалить</a>
+    <a asp-action="Index" class="btn btn-sm btn-primary">Вернуться</a>
+</div>

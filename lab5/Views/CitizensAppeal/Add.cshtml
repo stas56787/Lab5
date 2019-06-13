@@ -1,0 +1,41 @@
+﻿@model lab5.Models.CitizensAppeal
+@{
+    ViewData["Title"] = "Add";
+}
+
+<h2>Добавить</h2>
+<hr />
+<div class="row">
+    <div class="col-md-4">
+        <form asp-action="Add">
+            <div asp-validation-summary="ModelOnly" class="text-danger"></div>
+            <div class="form-group">
+                <label asp-for="LFO" class="control-label"></label>
+                <input asp-for="LFO" class="form-control" />
+                <span asp-validation-for="LFO" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                <label asp-for="Organization" class="control-label"></label>
+                <input asp-for="Organization" class="form-control" />
+                <span asp-validation-for="Organization" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                <label asp-for="GoalOfRequest" class="control-label"></label>
+                <input asp-for="GoalOfRequest" class="form-control" />
+                <span asp-validation-for="GoalOfRequest" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                <label asp-for="ScheduleForWeek.StartTime" class="control-label"></label>
+                <input asp-for="ScheduleForWeek.StartTime" class="form-control" />
+                <span asp-validation-for="ScheduleForWeek.StartTime" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                <input type="submit" value="Добавить" class="btn btn-primary" />
+            </div>
+        </form>
+    </div>
+</div>
+
+<div>
+    <a asp-action="Index">Вернуться</a>
+</div>

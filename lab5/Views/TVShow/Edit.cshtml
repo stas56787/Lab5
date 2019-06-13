@@ -1,0 +1,38 @@
+﻿@model lab5.Models.TVShow
+
+<h2>Редактирование</h2>
+<form asp-action="Edit">
+    <div class="form-horizontal">
+        <div asp-validation-summary="ModelOnly" class="text-danger"></div>
+        <input type="hidden" asp-for="TVShowID" />
+        <div class="form-group">
+            <label asp-for="NameShow" class="control-label"></label>
+            <input asp-for="NameShow" class="form-control" />
+            <span asp-validation-for="NameShow" class="text-danger"></span>
+        </div>
+        <div class="form-group">
+            <label asp-for="Duration" class="control-label"></label>
+            <input asp-for="Duration" class="form-control" />
+            <span asp-validation-for="Duration" class="text-danger"></span>
+        </div>
+        <div class="form-group">
+            <label asp-for="Rating" class="control-label"></label>
+            <input asp-for="Rating" class="form-control" />
+            <span asp-validation-for="Rating" class="text-danger"></span>
+        </div>
+        <div class="form-group">
+            <label asp-for="DescriptionShow" class="control-label"></label>
+            <input asp-for="DescriptionShow" class="form-control" />
+            <span asp-validation-for="DescriptionShow" class="text-danger"></span>
+        </div>
+        <div class="form-group">
+            <div class="col-md-offset-2 col-md-10">
+                <input type="submit" value="Сохранить" class="btn btn-warning" />
+            </div>
+        </div>
+    </div>
+</form>
+
+<div>
+    <a asp-action="Index" class="btn btn-sm btn-primary">Вернуться</a>
+</div>

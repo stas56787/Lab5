@@ -1,0 +1,44 @@
+﻿@using lab5.ViewModels
+@using lab5.Helpers
+@addTagHelper "*, lab5"
+@model GenresViewModel
+@{
+    ViewData["Title"] = "Index";
+}
+
+<div>
+    <div class="data-search">
+        @using (Html.BeginForm("Index", "Genre", FormMethod.Post))
+        {
+            <fieldset>
+                Название: @Html.TextBox("GenreName", Model.GenreViewModel.NameGenre)
+                <input type="submit" value="Найти" />
+            </fieldset>
+        }
+        <a asp-action="Add" class="btn btn-default btn">
+            Добавить
+            <i class="glyphicon glyphicon-chevron-right"></i>
+        </a>
+    </div>
+    <div>
+        Жанры
+        <table>
+            <tr>
+                <th><a asp-controller="Genre" asp-action="Index" asp-route-sortOrder="@ViewBag.NameSort">Название</a></th>
+                <td>Описание</td>
+            </tr>
+            @foreach (Genre i in Model.PageViewModel)
+            {
+                <tr>
+                    <td>@i.NameGenre</td>
+                    <td>@i.DescriptionOfGenre</td>
+                    <td>
+                        <a asp-action="Edit" asp-route-id="@i.GenreID">Изменить</a>
+                        <a asp-action="Details" asp-route-id="@i.GenreID">Подробно</a>
+                    </td>
+                </tr>
+            }
+        </table>
+        <page-link page-model="Model.Pages" page-action="Index"></page-link>
+    </div>
+</div>

@@ -1,0 +1,46 @@
+﻿@using lab5.ViewModels
+@using lab5.Helpers
+@addTagHelper "*, lab5"
+@model ScheduleForWeeksViewModel
+@{
+    ViewData["Title"] = "Index";
+}
+
+<div>
+    <div class="data-search">
+        @using (Html.BeginForm("Index", "ScheduleForWeek", FormMethod.Post))
+        {
+            <fieldset>
+                Время начала: @Html.TextBox("StartTime", Model.ScheduleForWeekViewModel.StartTime)
+                <input type="submit" value="Найти" />
+            </fieldset>
+        }
+        <a asp-action="Add" class="btn btn-default btn">
+            Добавить
+            <i class="glyphicon glyphicon-chevron-right"></i>
+        </a>
+    </div>
+    <div>
+        Расписание
+        <table>
+            <tr>
+                <td><a asp-controller="ScheduleForWeek" asp-action="Index" asp-route-sortOrder="@ViewBag.NameSort">Время начала</a></td>
+                <td>Приглашенные гости</td>
+                <td>Шоу (по ID)</td>
+            </tr>
+            @foreach (ScheduleForWeek i in Model.PageViewModel)
+            {
+                <tr>
+
+                    <td>@Html.DisplayFor(modelItem => i.StartTime)</td>
+                    <td>@Html.DisplayFor(modelItem => i.GuestsEmployees)</td>
+                    <td>@Html.DisplayFor(modelItem => i.TVShow.NameShow)</td>
+                    <td>
+                        <a asp-action="Edit" asp-route-id="@i.ScheduleForWeekID">Изменить</a>
+                        <a asp-action="Details" asp-route-id="@i.ScheduleForWeekID">Подробно</a>
+                    </td>
+                </tr>
+            }
+        </table>
+    </div>
+</div>

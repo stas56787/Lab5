@@ -1,0 +1,52 @@
+﻿@using lab5.ViewModels
+@using lab5.Helpers
+@addTagHelper "*, lab5"
+@model TVShowsViewModel
+@{
+    ViewData["Title"] = "Index";
+}
+
+<div>
+    @Html.CreateLinksToPages(Model.Pages)
+    <div class="data-search">
+        @using (Html.BeginForm("Index", "TVShow", FormMethod.Post))
+        {
+            <fieldset>
+                Название шоу: @Html.TextBox("TVShowName", Model.TVShowViewModel.NameShow)
+                <input type="submit" value="Найти" />
+            </fieldset>
+        }
+        <a asp-action="Add" class="btn btn-default btn">
+            Добавить
+            <i class="glyphicon glyphicon-chevron-right"></i>
+        </a>
+    </div>
+    <div>
+        Информация о шоу
+        <table>
+            <tr>
+                <td><a asp-controller="TVShow" asp-action="Index" asp-route-sortOrder="@ViewBag.NameSort">Название</a></td>
+                <td>Длитльность</td>
+                <td>Рейтинг</td>
+                <td>Описание</td>
+                <td>Жанр (по ID)</td>
+            </tr>
+            @foreach (TVShow i in Model.PageViewModel)
+            {
+                <tr>
+
+                    <td>@Html.DisplayFor(modelItem => i.NameShow)</td>
+                    <td>@Html.DisplayFor(modelItem => i.Duration)</td>
+                    <td>@Html.DisplayFor(modelItem => i.Rating)</td>
+                    <td>@Html.DisplayFor(modelItem => i.DescriptionShow)</td>
+                    <td>@Html.DisplayFor(modelItem => i.Genre.NameGenre)</td>
+                    <td>
+                        <a asp-action="Edit" asp-route-id="@i.TVShowID">Изменить</a>
+                        <a asp-action="Details" asp-route-id="@i.TVShowID">Подробно</a>
+                    </td>
+                </tr>
+            }
+        </table>
+        <page-link page-model="Model.Pages" page-action="Index"></page-link>
+    </div>
+</div>
